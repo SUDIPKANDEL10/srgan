@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>SRGAN</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+  body {
+    background-color: #06497d;
+    color: rgb(47, 136, 144);
+    font-family: Arial, sans-serif;
+
+  }
+  container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  .btn {
+    background-color: #666;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .btn:hover {
+    background-color: #fff;
+    color: #444;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: #7289da;
+    border-color: #7289da;
+    color: white;
+    margin-right: 10px;
+  }
+
+  .dimension {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.low {
+  width: 50%;
+}
+
+.high {
+  width: 50%;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+  <div class="text-center">
+    <h2>
+      Single Image Super Resolution
+    </h2>
+</div>
+
+
+<!-- <div class="row"> -->
+
+
+
+
+<div class="row">
+    <h2 class="text-center">Select a file to upload</h2>
+    <p>
+      <!-- {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %} -->
+    </p>
+    
+    <form method="post" action="/" enctype="multipart/form-data">
+      
+      <dl>
+        <p class="text-center">
+          <button onclick="location.href='/open_webcam'">Open Webcam</button>
+        </p>
+      </dl>
+        <dl id="webcam-container" style="display:none">
+          <p class="text-center">
+              <video id="webcam" width="250" height="250"></video>
+              <br>
+              <input type="button" value="Capture" id="capture-image" class="btn btn-primary">
+          </p>
+        </dl>
+
+      <dl>
+          <p class="text-center">
+              <input type="file" name="file" class="form-control" autocomplete="off" required>
+          </p>
+      </dl>
+      
+      <dl>
+        <p class="text-center">Choose Model:</p>
+        <input type="submit" value="DIV2K" name="DIV2K" class="btn btn-primary"/>
+        <input type="submit" value="CELEB" name="CELEB" class="btn btn-primary"/>
+        
+
+      </dl>
+      <!-- <p>
+          <input type="submit" value="Submit" class="btn btn-primary">
+      </p> -->
+      
+    </form>
+
+    
+</div>
+
+<div class="container">
+  
+<div class="row">
+  <!-- {% if filename %} -->
+  <div class="col-xs-6 col-md-6">
+    <div class="page-header">
+      <h2 class="text-center">Input Image</h2>
+    </div>
+    <a href="#" class="thumbnail">
+      <img src="{{ url_for('display_ip_image', filename=filename) }}" class="img-responsive" height="500px" width="600px">
+    </a>
+</div>
+<!-- {% endif %} -->
+
+<!-- {% if genImg %} -->
+<div class="col-xs-6 col-md-6">
+  <div class="page-header">
+    <h2 class="text-center">Output Image</h2>
+  </div>
+  <a href="#" class="thumbnail">
+    <img src="{{ url_for('display_op_image', filename=genImg) }}" class="img-responsive" height="500px" width="600px">
+  </a>
+</div>
+<!-- {% endif %} -->
+
+
+
+
+</div>
+</div>
+</div>
+</body>
+</html>

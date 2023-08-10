@@ -1,0 +1,15 @@
+*.pth
+*.pyc
+*.png
+*.jpg
+*.jpeg
+
+_pycache_/
+data/
+epochs/
+benchmark_results/
+pytorch_ssim/
+static/
+statistics/
+training_results/
+

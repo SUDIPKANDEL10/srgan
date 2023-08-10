@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+streamlit = "*"
+requests-toolbelt = "*"
+uvicorn = "*"
+fastapi = "*"
+torch = "*"
+torchvision = "*"
+albumentations = "*"
+python-multipart = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
